@@ -187,7 +187,7 @@ export const doUpgrade = async ({
   flags.push(target);
   flags = addExtraFlags(EXTRA_FLAGS, flags, await packageManager.retrievePackageJson());
   flags = addNxPackagesToReject(flags);
-  const check = spawnSync('npx', ['npm-check-updates@latest', '/storybook/', ...flags], {
+  const check = spawnSync('npx', ['npm-check-updates@latest', '/.*storybook.*/', ...flags], {
     stdio: 'pipe',
     shell: true,
   });
